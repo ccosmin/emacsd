@@ -1,0 +1,9 @@
+auto-save-list/
+elpa/
+backups/
+network-security.data
+projectile-bookmarks.eld
+.DS_Store
+.recentf
+ido.last
+.smex-items
