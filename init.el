@@ -3,6 +3,10 @@
 ;;;;
 (setq inhibit-startup-screen t)
 
+(menu-bar-mode -1)
+(toggle-scroll-bar -1)
+(tool-bar-mode -1)
+
 ;; Define package repositories
 (require 'package)
 (add-to-list 'package-archives
