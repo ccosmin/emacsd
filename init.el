@@ -20,6 +20,12 @@
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
 
+;; Type y/n instead of yes/no
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; Kill the current buffer
+(global-set-key (kbd "C-x k") 'kill-this-buffer)
+
 ;; Define package repositories
 (require 'package)
 (add-to-list 'package-archives
