@@ -148,21 +148,8 @@
 ;; For editing lisps
 (load "elisp-editing.el")
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(coffee-tab-width 2)
- '(package-selected-packages
-   (quote
-    (tagedit smex rainbow-delimiters projectile paredit magit ido-ubiquitous exec-path-from-shell))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-
 (define-key minibuffer-local-map "\M-s" nil)
 
+(set-face-attribute 'default nil :height 120)
+
+(setq find-program "\"C:\\Program Files\\Git\\usr\\bin\\find.exe\"")
