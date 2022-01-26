@@ -1,9 +1,14 @@
 ;;;;
 ;; Packages
 ;;;;
+(push "c:/Users/cosmin/.emacs.d/lisp" load-path)
+(require 'restclient)
+(require 'misc)
+(require 'org)
 (setq inhibit-startup-screen t)
 
 (global-set-key (kbd "M-/") 'hippie-expand)
+(global-set-key "\M-Z" 'zap-up-to-char)
 (setq hippie-expand-try-functions-list 
       '(try-expand-dabbrev 
         try-expand-dabbrev-all-buffers 
@@ -20,6 +25,19 @@
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(c-basic-offset 2)
+ '(coffee-tab-width 2)
+ '(org-agenda-files (list org-directory))
+ '(org-directory "/Users/cosmin/notes/org")
+ '(package-selected-packages
+   (quote
+    (evil cider restclient tagedit smex rainbow-delimiters projectile paredit magit ido-ubiquitous exec-path-from-shell))))
+
 ;; Type y/n instead of yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -28,12 +46,9 @@
 
 ;; Define package repositories
 (require 'package)
+
 (add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
-(add-to-list 'package-archives
-             '("tromey" . "http://tromey.com/elpa/") t)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+             '("melpa" . "https://melpa.org/packages/") t)
 
 ;; (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
 ;;                          ("marmalade" . "http://marmalade-repo.org/packages/")
@@ -148,21 +163,30 @@
 ;; For editing lisps
 (load "elisp-editing.el")
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(coffee-tab-width 2)
- '(package-selected-packages
-   (quote
-    (tagedit smex rainbow-delimiters projectile paredit magit ido-ubiquitous exec-path-from-shell))))
+(set-face-attribute 'default nil :height 120)
+
+(define-key minibuffer-local-map "\M-s" nil)
+
+(setq find-program "\"C:\\Program Files\\Git\\usr\\bin\\find.exe\"")
+
+(global-set-key (kbd "M-z") 'zap-up-to-char)
+
+(defun logeu ()
+  (interactive)
+  (let ((name (format-time-string "%Y-%m-%d")))
+    (find-file (expand-file-name (concat "/Users/cosmin/notes/eu/log/" name ".txt")))))
+
+(defun logito ()
+  (interactive)
+  (let ((name (format-time-string "%Y-%U")))
+    (find-file (expand-file-name (concat "/Users/cosmin/notes/org/ito33-log/ito33-log-" name ".org")))))
+
+(require 'goto-last-change)
+
+(global-set-key "\C-x\C-\\" 'goto-last-change)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-(define-key minibuffer-local-map "\M-s" nil)
-
