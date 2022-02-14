@@ -40,7 +40,7 @@
  '(org-agenda-files (list org-directory))
  '(package-selected-packages
    (quote
-    (evil cider restclient tagedit smex rainbow-delimiters projectile paredit magit ido-ubiquitous exec-path-from-shell))))
+    (evil cider restclient tagedit smex rainbow-delimiters projectile paredit magit ido-completing-read+ exec-path-from-shell))))
 
 ;; Type y/n instead of yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -84,7 +84,6 @@
     ;; allow ido usage in as many contexts as possible. see
     ;; customizations/navigation.el line 23 for a description
     ;; of ido
-    ido-ubiquitous
 
     ;; Enhances M-x to allow easier execution of commands. Provides
     ;; a filterable list of possible commands in the minibuffer
