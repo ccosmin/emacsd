@@ -1,7 +1,12 @@
 ;;;;
 ;; Packages
 ;;;;
-(push "c:/Users/cosmin/.emacs.d/lisp" load-path)
+
+(load-file (expand-file-name
+            (cond ((eq system-type 'windows-nt) "windows.el")
+                  ((eq system-type 'gnu/linux) "linux.el"))
+            user-emacs-directory))
+
 (require 'restclient)
 (require 'misc)
 (require 'org)
@@ -33,7 +38,6 @@
  '(c-basic-offset 2)
  '(coffee-tab-width 2)
  '(org-agenda-files (list org-directory))
- '(org-directory "/Users/cosmin/notes/org")
  '(package-selected-packages
    (quote
     (evil cider restclient tagedit smex rainbow-delimiters projectile paredit magit ido-ubiquitous exec-path-from-shell))))
@@ -49,11 +53,6 @@
 
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
-
-;; (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-;;                          ("marmalade" . "http://marmalade-repo.org/packages/")
-;;                          ("melpa" . "http://melpa-stable.milkbox.net/packages/")))
-
 
 ;; Load and activate emacs packages. Do this first so that the
 ;; packages are loaded before you start trying to modify them.
